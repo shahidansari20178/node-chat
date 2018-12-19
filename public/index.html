@@ -6,7 +6,13 @@
     <body>
         <div ></div>
         <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/libs/jquery-3.3.1.min.js"></script>
         <p id="out">Welcome  to chat app</p>
+        <ol id="message"></ol>
+        <form id="message-form">
+            <input type="text" name="message">  
+        <button>Send</button>
+        </form>
         <script src="/js/index.js">
             var out=document.getElementById("out");
             out.innerHTML="msg"+msg;
