@@ -35,5 +35,5 @@ jQuery('#message-form').on('submit',function(e)
     {
         
     });
-    $("#nm").val(' ');
+    $("#msg").val('');
 });
