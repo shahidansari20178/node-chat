@@ -29,12 +29,15 @@ var li=jQuery('<li></li>');
 //socket.emit("createMessage",{"from":"Rushita","text":"hello"},function(data){ console.log('got it',data) })
 var flag=0; 
 var name="";
+var users='';
 jQuery('#message-form').on('submit',function(e)
 {
     e.preventDefault();
     if(flag==0)
     {
         name=$("#nm").val();
+        users+=`${name}\n`;
+        $("#Users").text(users);
         $("#nm").hide();
         flag=1;
     }
@@ -55,7 +58,9 @@ jQuery("#send-l").on('click',function()
         {
             return alert("geolocation not support by browser");
         }
+    jQuery("#send-l").attr('disabled','disabled');
     navigator.geolocation.getCurrentPosition(function(position){
+        jQuery("#send-l").removeAttr('disabled');
         //console.log(position);
         socket.emit('createLocationMessage',{
             latitude:position.coords.latitude,
